@@ -7,7 +7,10 @@ pipeline {
   
   stages {
     stage('Build'){
-      echo 'Yessssssssssssssssssss'
+      steps { 
+        echo 'Yessssssssssssssssssss'
+      }
+      
     }
   }
 }
