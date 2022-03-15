@@ -17,5 +17,25 @@ pipeline {
               propagate: true
       }      
     }
+    
+    stage('CustomStage') {
+      steps {
+        echo 'CustomStage'
+      }
+    }
+    
+    stage('Calling Base Again!'){
+      steps { 
+        echo 'Calling Base'
+        build job: 'git_base',
+              parameters: [
+                booleanParam(name: 'StageA', value: "false"),
+                booleanParam(name: 'StageB', value: "false")
+              ],
+              wait: true, 
+              propagate: true
+      }      
+    }
+    
   }
 }
