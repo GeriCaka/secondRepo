@@ -2,15 +2,16 @@ pipeline {
   agent any 
   
   triggers {
-        pollSCM '* * * * *'
+    pollSCM '* * * * *'
   }
   
   stages {
-    stage('Build'){
+    stage('Calling Base!'){
       steps { 
-        echo 'Yessssssssssssssssssss'
-      }
-      
+        build job: 'git_base',
+                    wait: true, 
+                    propagate: true
+      }      
     }
   }
 }
