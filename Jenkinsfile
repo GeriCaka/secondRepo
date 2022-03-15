@@ -10,8 +10,11 @@ pipeline {
       steps { 
         echo 'Calling Base'
         build job: 'git_base',
-                    wait: true, 
-                    propagate: true
+              parameters: [
+                booleanParam(name: 'StageC', value: "false")
+              ],
+              wait: true, 
+              propagate: true
       }      
     }
   }
