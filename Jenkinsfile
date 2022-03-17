@@ -11,6 +11,8 @@ pipeline {
         echo 'Calling Base'
         build job: 'git_base',
               parameters: [
+                booleanParam(name: 'StageA', value: "false"),
+                booleanParam(name: 'StageB', value: "false"),
                 booleanParam(name: 'StageC', value: "false")
               ],
               wait: true, 
